@@ -1,0 +1,8 @@
+template_matches/*
+maps/*
+*.o
+template_matcher
+*.swp
+.DS_Store
+output/*
+walk/*
