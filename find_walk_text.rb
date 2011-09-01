@@ -21,6 +21,8 @@ end
 
 
 template_name = File.basename(template_image).split(".")[0]
+system("rm -rf #{template_name}")
+system("rm -rf #{File.dirname(TEMPLATE_OUTPUT)}")
 system("mkdir -p #{template_name}")
 system("mkdir -p #{File.dirname(TEMPLATE_OUTPUT)}")
 
@@ -70,7 +72,6 @@ maps.each do |map|
   puts command
   coords = %x[#{command}]
   coords = coords.split("\n")
-  puts coords.size
   template_matches = Dir.glob(TEMPLATE_OUTPUT)
   template_matches = template_matches.sort_by {|filename| File.mtime(filename) }
   template_matches.each_with_index do |template_match, index|
